@@ -10,23 +10,23 @@
 
 <script>
 import axios from "axios";
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from "vue";
 
 export default {
   name: "City",
   props: {
     cityName: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   setup(props) {
-    const cityInfo = ref()
+    const cityInfo = ref();
     onMounted(async () => {
-      const res = await axios.get("/api/cities/" + props.cityName)
+      const res = await axios.get("/api/citiesinfo/" + props.cityName);
       cityInfo.value = res.data;
-    })
-    return { cityInfo }
+    });
+    return { cityInfo };
   },
 };
 </script>

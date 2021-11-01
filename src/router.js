@@ -3,33 +3,33 @@ import Home from "./pages/Home.vue";
 import NotFound from "./pages/NotFound.vue";
 import Axios from "./pages/Axios.vue";
 import Login from "./pages/Login.vue";
-import City from "./pages/City.vue"
+import City from "./pages/City.vue";
 import axios from "axios";
 
 const routes = [
   {
     path: "/",
     component: Home,
-    meta: { isPublic: true } 
+    meta: { isPublic: true },
   },
   {
-    path: "/:path(.*)", 
-    component: NotFound, 
-    meta: { isPublic: true }
+    path: "/:path(.*)",
+    component: NotFound,
+    meta: { isPublic: true },
   },
   {
-     path: "/axios",
-     component: Axios,
+    path: "/axios",
+    component: Axios,
   },
   {
-     path: "/login",
-     component: Login,
-     meta: { isPublic: true }
+    path: "/login",
+    component: Login,
+    meta: { isPublic: true },
   },
   {
-     path: "/city/:cityName", 
-     component: City, 
-     props: true
+    path: "/city/:cityName",
+    component: City,
+    props: true,
   },
 ];
 
@@ -38,7 +38,8 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach(async (to, from) => {
+// to, fromでfrom.meta.pathも使えると思う。多分ページ離れる時の条件分岐
+router.beforeEach(async (to) => {
   try {
     await axios.get("/api/whoami");
   } catch (_) {

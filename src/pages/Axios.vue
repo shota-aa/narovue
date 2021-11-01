@@ -9,21 +9,24 @@
 </template>
 
 <script>
-import axios from "axios"
+import axios from "axios";
 
 export default {
   name: "Axios",
   setup() {
     const sendGet = () => axios.get("https://en54xpg8dd8zsnd.m.pipedream.net");
-    const sendPost = () => axios.post("https://en54xpg8dd8zsnd.m.pipedream.net", {
-      username: "kounosuke"
-    });
-    const sendPut = () => axios.put("https://en54xpg8dd8zsnd.m.pipedream.net", {
-      testData: { string: "string", number: 1 },
-    });
-    const sendDelete = () => axios.delete("https://en54xpg8dd8zsnd.m.pipedream.net", {
-      data: { po: 1 },
-    });
+    const sendPost = () =>
+      axios.post("https://en54xpg8dd8zsnd.m.pipedream.net", {
+        username: "kounosuke",
+      });
+    const sendPut = () =>
+      axios.put("https://en54xpg8dd8zsnd.m.pipedream.net", {
+        testData: { string: "string", number: 1 },
+      });
+    const sendDelete = () =>
+      axios.delete("https://en54xpg8dd8zsnd.m.pipedream.net", {
+        data: { po: 1 },
+      });
     const ping = () => axios.get("/api/ping");
     return {
       sendGet,

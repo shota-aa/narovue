@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 import { ref } from "vue";
 
 export default {
@@ -15,10 +15,11 @@ export default {
   setup() {
     const username = ref("");
     const password = ref("");
-    const login = () => axios.post("/api/login", {
-      username: username.value, password: password.value
-    });
-    
+    const login = () =>
+      axios.post("/api/login", {
+        username: username.value,
+        password: password.value,
+      });
     return {
       login,
       username,
